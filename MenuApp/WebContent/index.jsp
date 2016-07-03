@@ -1,5 +1,12 @@
-<html>
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="js/angular.min.js"></script>
 <body>
-<h2>Hello World!</h2>
+
+<div ng-app="">
+ 	<p>Name : <input type="text" ng-model="name"></p>
+ 	<h1>Hello {{name}}</h1>
+</div>
+
 </body>
 </html>
