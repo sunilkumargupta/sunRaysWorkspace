@@ -1,5 +1,5 @@
 requirejs.config({
-  'baseUrl': '/demoapp',
+  'baseUrl': '/MenuApp',
   'paths': {
     'app': 'js/app',
     'jquery': 'js/lib/jquery-latest',
