@@ -1,64 +1,44 @@
 define(['jquery', 'handlebars',	'backbone', 
-        'app/views/menuitemdetails', 'app/views/menu', 'app/views/menucategory', 
-        'app/models/menuitem', 'app/models/menulist', 'app/collections/menuitems'], 
+        'app/views/menu',
+        'app/views/menuitemdetails',
+        'app/models/menuitem',
+        'app/collections/menuitems'], 
 		function($, Handlebars, Backbone, 
-				MenuItemDetails, MenuView, MenuCategoryView,
-				MenuItem, MenuList, MenuItems) {
+				MenuView,
+				MenuItemDetails,
+				MenuItem,
+				MenuItems) {
 	
 	// JS Module Below
 
 	var AppRouter = Backbone.Router.extend({
 		routes: {
 			"": "list",
-			"menu-items/new": "itemForm",
-			"menu-items/:item": "itemDetails",
-			"categories/:category": "categoryDetails"
+			"menu-items/:item": "itemDetails"
 		},
 		
 		list: function(){
 			$('#app').html(this.menuView.render().el);
+			$('#appDetail').empty();
+		},
+		itemDetails: function(item) {
+			//this.menuItemView.model = this.menuItems.get(item);
+			this.menuItemModel.set("menuId",item);
+			this.menuItemModel.fetch();
+			$('#appDetail').html(this.menuItemView.render().el);
 		},
 		
 		initialize: function () {
 			
 			this.menuItems = new MenuItems();
 			this.menuItems.fetch();
-			
-			this.menuItemModel = new MenuItem();
-			this.menuItemView = new MenuItemDetails(
-				{
-					model: this.menuItemModel
-				}
-			);
-			
 			this.menuView = new MenuView({collection: this.menuItems});
 			
-			this.menuCategoryView = new MenuCategoryView( 
-				{
-					category: 'Desserts',
-					images: [
-					     "gulabjamun.jpg",
-					     "rasmalai.jpg",
-					     "jalebi.jpg"					        
-					]
-				}					
-			);
-		},
-
-		itemDetails: function(item) {
-			this.menuItemView.model = this.menuItems.get(item);
+			this.menuItemModel = new MenuItem();
+			this.menuItemView = new MenuItemDetails({ model: this.menuItemModel });
 			
-			$('#app').html(this.menuItemView.render().el);
-		},
-
-		categoryDetails: function(category) {
-			this.menuCategoryView.options.category = category;
-			$('#app').html(this.menuCategoryView.render().el);
 		},
 		
-		itemForm: function() {
-			$('#app').html('New item form');
-		}
 	});
 	
 	var app = new AppRouter();

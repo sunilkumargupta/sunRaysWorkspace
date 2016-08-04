@@ -3,11 +3,13 @@ define(['jquery', 'backbone'],
 	
 	// Module Below
 	var MenuItem = Backbone.Model.extend({
-		
+		urlRoot:"/MenuApp/data/menuItems/get",
+		idAttribute: "menuId",
 		defaults: {
-			category: 'Snacks',
-			imagepath: 'samosa.jpg',
-			name: ''
+			menuId: '-1',
+			menuName: 'menuName',
+			category: 'category',
+			imageId: 'imageId'
 		}
 		
 	});

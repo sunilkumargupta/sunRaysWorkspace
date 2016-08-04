@@ -5,13 +5,15 @@ define(['jquery', 'backbone', 'app/models/menuitem'],
 	var MenuItems = Backbone.Collection.extend({
 
 		model: MenuItem,
-		url: '/MenuApp/json/menuItems/listMenu',
+		url: '/MenuApp/data/menuItems/list',
 		
 		comparator: function(a, b) {
-			if( a.get('name') < b.get('name')) {
-				return 1;
-			} else if( b.get('name') > a.get('name')) {
+			if( a.get('menuId') < b.get('menuId')) {
 				return -1;
+			} else if( b.get('menuId') > a.get('menuId')) {
+				return 1;
+			}else {
+				return 0;
 			}
 		},
 	});

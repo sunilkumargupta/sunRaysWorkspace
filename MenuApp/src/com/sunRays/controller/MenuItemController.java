@@ -25,7 +25,7 @@ import com.sunRays.service.MenuItemService;
 @Component
 @Scope("prototype")
 @Path("/menuItems")
-public class MenuItemJSONProvider {
+public class MenuItemController {
 	 @Autowired
 	 private MenuItemService menuItemService;
 	 
@@ -45,7 +45,7 @@ public class MenuItemJSONProvider {
 	 }
 
 	 @GET
-	 @Path("/listMenu")
+	 @Path("/list")
 	 @Produces(MediaType.APPLICATION_JSON)
 	 //@RequestMapping(value = "/listMenu", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
 	 //@ResponseBody
@@ -87,10 +87,6 @@ public class MenuItemJSONProvider {
 		menuItem.setMenuName(menuItemDto.getMenuName());
 		menuItem.setCategory(menuItemDto.getCategory());
 		menuItem.setImageId(menuItemDto.getImageId());
-		System.out.println("id: "+menuItem.getMenuId());
-		System.out.println("name: "+menuItem.getMenuName());
-		System.out.println("cat: "+menuItem.getCategory());
-		System.out.println("image: "+menuItem.getImageId());
 		return menuItem;
 	}
 	

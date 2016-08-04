@@ -1,5 +1,16 @@
-<ul>
+<table border="1" style="width:50%">
+<tr>
+    <th>Menu Id</th>
+    <th>Menu Name</th> 
+    <th>Category</th>
+    <th>Image</th>
+</tr>
 {{#each models}}
-	<li>{{attributes.category}}&nbsp;{{attributes.menuName}}</li>
+<tr>     
+<td>{{attributes.menuId}}</td>
+<td><a href="#/menu-items/{{attributes.menuId}}">{{attributes.menuName}}</a></td>
+<td>{{attributes.category}}</td>
+<td>{{attributes.imageId}}</td>
+</tr>
 {{/each}}
-</ul>
+</table>

@@ -549,7 +549,7 @@ define([
           //sourceURL trick, so skip it if enabled.
           /*@if (@_jscript) @else @*/
           if (!config.isBuild) {
-            text += '\r\n//@ sourceURL=' + path;
+            text += '\r\n//# sourceURL=' + path;
           }
           /*@end@*/
 

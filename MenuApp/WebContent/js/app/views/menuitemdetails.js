@@ -9,7 +9,7 @@ define(['jquery', 'backbone', 'handlebars', 'hbs!app/templates/menuitemdetails']
 		},
 		
 		render: function() {
-			this.$el.html( template(this.model.attributes));			
+			this.$el.html( template(this.model));			
 			return this;
 		}
 		

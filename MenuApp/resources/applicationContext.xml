@@ -35,7 +35,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 			<list>
 				<value>com.sunRays.model.MenuItem</value>
 				<value>com.sunRays.model.Inventory</value>
-				<value>com.sunRays.model.InventoryDetails</value>
+				<!-- <value>com.sunRays.model.InventoryDetails</value>  -->
 			</list>
 		</property>
 		<property name="hibernateProperties">

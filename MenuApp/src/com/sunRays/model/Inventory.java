@@ -19,8 +19,8 @@ public class Inventory {
 	private String itemName;
 	@Column(name = "description")
 	private String description;
-	@OneToOne(mappedBy="inventory", cascade=CascadeType.ALL)
-	private InventoryDetails inventoryDetail;
+	//@OneToOne(mappedBy="inventory", cascade=CascadeType.ALL)
+	//private InventoryDetails inventoryDetail;
 	public int getItemId() {
 		return itemId;
 	}
@@ -39,11 +39,11 @@ public class Inventory {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public InventoryDetails getInventoryDetail() {
+	/*public InventoryDetails getInventoryDetail() {
 		return inventoryDetail;
 	}
 	public void setInventoryDetail(InventoryDetails inventoryDetail) {
 		this.inventoryDetail = inventoryDetail;
-	}
+	}*/
 	
 }

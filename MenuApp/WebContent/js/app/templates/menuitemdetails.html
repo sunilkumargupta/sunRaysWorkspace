@@ -1,9 +1,15 @@
-<div>
-
-	<h1>{{name}}</h1>
-	
-	<p><span class="label">{{category}}</span></p>
-	
-	<img src="photos/{{imagepath}}" class="img-polaroid" />
-	
-</div>
+{{name}}
+<table border="1" style="width:50%">
+<tr>
+    <th>Menu Id</th>
+    <th>Menu Name</th> 
+    <th>Category</th>
+    <th>Image</th>
+</tr>
+<tr>     
+<td>{{attributes.menuId}}</td>
+<td>{{attributes.menuName}}</td>
+<td>{{attributes.category}}</td>
+<td>{{attributes.imageId}}</td>
+</tr> 
+</table>

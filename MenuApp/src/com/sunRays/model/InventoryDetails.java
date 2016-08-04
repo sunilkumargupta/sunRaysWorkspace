@@ -21,8 +21,8 @@ public class InventoryDetails {
 	private float itemPrice;
 	@Column(name="availableQty")
 	private float availableQty;
-	@OneToOne
-    @PrimaryKeyJoinColumn
+	//@OneToOne
+   // @PrimaryKeyJoinColumn
 	private Inventory inventory;
 	
 	public int getItemId() {

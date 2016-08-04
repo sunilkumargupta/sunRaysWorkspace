@@ -14,10 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.sunRays.bean.MenuItemDto;
+import com.sunRays.bean.InventoryDto;
 import com.sunRays.model.Inventory;
-import com.sunRays.model.InventoryDetails;
-import com.sunRays.model.MenuItem;
 import com.sunRays.service.InventoryService;
 
 
@@ -39,7 +37,7 @@ public class InventoryController {
 	}
 	
 	@GET
-	 @Path("/listItems")
+	 @Path("/list")
 	 @Produces(MediaType.APPLICATION_JSON)
 	 public List<Inventory> getItemList(){
 		 return inventoryService.getAllItems();
@@ -48,25 +46,18 @@ public class InventoryController {
 	@Path("/save")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Inventory>  update(Inventory item){
-		inventoryService.update(item);
+	public List<Inventory>  update(InventoryDto item){
+		inventoryService.update(beanToModel(item));
 		 return getItemList();
 	 }
-	@GET
-	@Path("/hello")
-	public String  hello(){
-		Inventory item=new Inventory();
-		InventoryDetails id=new InventoryDetails();
-		//id.setItemId(1);
-		id.setItemPrice(12.5f);
-		id.setItemPrice(15f);
-		
-		//item.setItemId(3);
-		item.setItemName("Lux");
-		item.setDescription("Hindustan Lever");
-		item.setInventoryDetail(id);
-		id.setInventory(item);
-		inventoryService.update(item);
-		return "sunRays";
-	 }
+	private Inventory beanToModel(InventoryDto itemDto) {
+		Inventory item = new Inventory();
+		if(itemDto.getItemId()!=null && itemDto.getItemId().length()>0)
+			item.setItemId(Integer.parseInt(itemDto.getItemId()));
+		item.setItemName(itemDto.getItemName());
+		item.setDescription(itemDto.getDescription());
+		return item;
+	}
+
+	
 }
