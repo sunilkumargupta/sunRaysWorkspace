@@ -13,17 +13,15 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+
 import com.sunRays.bean.MenuItemDto;
 import com.sunRays.model.MenuItem;
 import com.sunRays.service.MenuItemService;
 
 
-@Component
-@Scope("prototype")
+@Controller
 @Path("/menuItems")
 public class MenuItemController {
 	 @Autowired
